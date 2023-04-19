@@ -1,11 +1,3 @@
-<?php
-function debug($str)
-{
-    $str = json_encode($str);
-    echo '<script> console.log(' . $str . '); </script>';
-    return;
-}
-?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -21,29 +13,6 @@ function debug($str)
     <script src="https://kit.fontawesome.com/5555362996.js" crossorigin="anonymous"></script>
     <script src="./js/libs/jquery/jquery-3.4.0.min.js"></script>
     <script src="./js/libs/clipboard.min.js"></script>
-
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(57546799, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
-        });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/57546799" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
@@ -52,21 +21,9 @@ function debug($str)
             <img src="../../img/logo_name.png">
         </div>
     </div>
-    <!-- <div class="socials">
-        <p>Найди меня</p>
-        <div class="social-links">
-            <div class="func-btn">
-                <a href="https://vk.com/scherbakkk" target="_blank"><i class="fab fa-vk"></i></a>
-            </div>
-            <div class="func-btn">
-                <a href="https://instagram.com/scherbakk?igshid=1vqef0um8h1if" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="func-btn">
-                <i class="fas fa-external-link-alt"></i>
-            </div>
-        </div>
-    </div> -->
-    <div class="back-btn"><a href="../../index.php"><i class="fas fa-long-arrow-alt-left"></i>Назад</a></div>
+    <div class="back-btn">
+        <a href="../../index.php"><i class="fas fa-long-arrow-alt-left"></i>Назад</a>
+    </div>
     <div class="content">
         <div class="full-post">
             <div class="full-post-header">
@@ -74,29 +31,7 @@ function debug($str)
                     <p>Токсичная дружба</p>
                 </div>
                 <div class="full-post-overlay"></div>
-                <?php
-                $header = scandir('./');
-                $header = array_diff($header, ['.', '..', '.DS_Store']);
-                $header = array_values($header);
-                foreach ($header as $value) {
-                    $file = explode('.', $value);
-                    if ($file[0] === 'header') {
-                        $header = $file[0];
-                        $header_type = $file[1];
-                        break;
-                    }
-                }
-                if ($header !== 'header') {
-                } else {
-                    $imgsize = getimagesize('./' . $header . '.' . $header_type);
-                    debug($imgsize);
-                    if ($imgsize[0] > $imgsize[1]) {
-                        echo '<img src="./' . $header . '.' . $header_type . '">';
-                    } else {
-                        echo '<img class="crop-img" src="./' . $header . '.' . $header_type . '">';
-                    }
-                }
-                ?>
+                <img class="crop-img" src="/assets/post/post-1/header.jpg">
             </div>
             <div class="full-post-content">
                 <div class="full-post-name">
